@@ -250,9 +250,7 @@ export class OrganizationService implements OnModuleInit, TrackableJobExecutions
       organization.suspensionReason = 'Payment method required'
     }
 
-    organization.sandboxLimitedNetworkEgress = this.configService.get<boolean>(
-      'ORGANIZATION_SANDBOX_DEFAULT_NETWORK_BLOCK_ALL',
-    )
+    organization.sandboxLimitedNetworkEgress = this.configService.get('organizationSandboxDefaultLimitedNetworkEgress')
 
     const owner = new OrganizationUser()
     owner.userId = createdBy
